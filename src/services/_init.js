@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const abhisAxios = axios.create({
+const theyardAxios = axios.create({
   baseURL: "http://localhost:8080",
   withCredentials: false,
   headers: {
@@ -8,4 +8,4 @@ const abhisAxios = axios.create({
   },
 });
 
-export default abhisAxios;
+export default theyardAxios;

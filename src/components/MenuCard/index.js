@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { IDRConvert } from "../../utils/IDRConvert";
 
-const RoomCard = ({ id, title, description, price, imageUrl }) => {
+const MenuCard = ({ id, title, description, price, imageUrl }) => {
   return (
     <Link to={"/room/" + id}>
       <Box
@@ -15,7 +15,7 @@ const RoomCard = ({ id, title, description, price, imageUrl }) => {
         overflow="hidden"
       >
         <Box>
-          <Box bgColor="gray.500" w="full" h="52" overflow="hidden">
+          <Box bgColor="#3d550c" w="full" h="52" overflow="hidden">
             <Image src={imageUrl} objectFit="cover" h="full" w="full" />
           </Box>
         </Box>
@@ -37,4 +37,4 @@ const RoomCard = ({ id, title, description, price, imageUrl }) => {
   );
 };
 
-export default RoomCard;
+export default MenuCard;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import hero from "../assets/hero.jpg";
-import heroDesign from "../assets/HeroDesign.png";
+import hero from "../../assets/hero.jpg";
+import heroDesign from "../../assets/HeroDesign.png";
 export default function Hero() {
   return (
     <Section id="home">
@@ -9,10 +9,6 @@ export default function Hero() {
         <img src={hero} alt="Background Image" />
       </div>
       <div className="content">
-        <div className="sale">
-          <img src={heroDesign} alt="" />
-          <h1>LETS GO!</h1>
-        </div>
         <div className="info">
           <h2>Opening Promotion</h2>
           <em>
@@ -20,7 +16,9 @@ export default function Hero() {
             Look no further than our restaurant! For a limited time only, enjoy
             promo price at The Yard Ubud.
           </em>
-          <button>ORDER NOW</button>
+          <a href="/buynow">
+            <button>ORDER NOW</button>
+          </a>
         </div>
       </div>
     </Section>

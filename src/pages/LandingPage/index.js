@@ -1,48 +1,44 @@
-import {
-  Box,
-  Container,
-  Grid,
-  GridItem,
-  Heading,
-  SimpleGrid,
-} from "@chakra-ui/layout";
-import React, { useEffect, useState } from "react";
-import RoomCard from "../../components/RoomCard";
-import RoomService from "../../services/room";
-
-const LandingPage = () => {
-  const [rooms, setRooms] = useState([]);
-
-  const fetchAllRooms = async () => {
-    const roomsResp = await RoomService.findAllRooms();
-    setRooms(roomsResp.data.data);
-  };
-
+import React, { useEffect } from "react";
+import Hero from "../../components/LandingPage/Hero";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import Products from "../../components/LandingPage/Products";
+import ScrollToTop from "../../components/LandingPage/ScrollToTop";
+import Services from "../../components/LandingPage/Services";
+import Testimonials from "../../components/LandingPage/Testimonials";
+import scrollreveal from "scrollreveal";
+export default function App() {
   useEffect(() => {
-    fetchAllRooms();
+    const sr = scrollreveal({
+      origin: "top",
+      distance: "80px",
+      duration: 2000,
+      reset: false,
+    });
+    sr.reveal(
+      `
+        nav,
+        #home,
+        #services,
+        #products,
+        #testimonials,
+        .footer
+    `,
+      {
+        opacity: 0,
+        interval: 200,
+      }
+    );
   }, []);
-
   return (
-    <Container maxW="container.lg">
-      <Box>
-        <Heading color="gray.500">Abhisrama Guest House</Heading>
-      </Box>
-      <Box pt="4" display="flex" justifyContent="center">
-        <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing="10">
-          {rooms.map((val, key) => (
-            <RoomCard
-              key={key}
-              id={val.id}
-              title={val.name}
-              description={val.description}
-              price={val.price_per_day}
-              imageUrl={val.image_url}
-            />
-          ))}
-        </SimpleGrid>
-      </Box>
-    </Container>
+    <>
+      <ScrollToTop />
+      <Navbar />
+      <Hero />
+      <Services />
+      <Products />
+      <Testimonials />
+      <Footer />
+    </>
   );
-};
-
-export default LandingPage;
+}

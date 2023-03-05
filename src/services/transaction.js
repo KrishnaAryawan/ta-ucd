@@ -1,5 +1,5 @@
-import abhisAxios from "./_init";
+import theyardAxios from "./_init";
 
 export async function PostTransaction(data) {
-  return await abhisAxios.post("/transaction", data);
+  return await theyardAxios.post("/transaction", data);
 }

@@ -10,23 +10,22 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import RoomService from "../../services/room";
+import MenuService from "../../services/menu";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import abhisAxios from "../../services/_init";
+import theyardAxios from "../../services/_init";
 import { IDRConvert } from "../../utils/IDRConvert";
-import { SiWhatsapp } from "react-icons/si";
 
-const RoomPage = () => {
-  const [room, setRoom] = useState({});
+const MenuPage = () => {
+  const [menu, setMenu] = useState({});
   const { id } = useParams();
 
-  const findRooms = async (selectedId) => {
-    const roomResp = await RoomService.findRoomById(selectedId);
-    setRoom(roomResp.data.data);
+  const findMenu = async (selectedId) => {
+    const menuResp = await MenuService.findMenuById(selectedId);
+    setMenu(menuResp.data.data);
   };
 
   useEffect(() => {
-    findRooms(id);
+    findMenu(id);
   }, [id]);
 
   return (
@@ -40,15 +39,15 @@ const RoomPage = () => {
         <Grid pt="2" templateColumns="repeat(1,1fr)">
           <GridItem>
             <Box bgColor="gray" w="50vw" h="96" rounded="xl" overflow="hidden">
-              <Image src={room.image_url} objectFit="cover" h="full" w="full" />
+              <Image src={menu.image_url} objectFit="cover" h="full" w="full" />
             </Box>
           </GridItem>
           <GridItem px="4">
-            <Heading size="lg">{room.name}</Heading>
+            <Heading size="lg">{menu.name}</Heading>
             <Text color="teal" fontWeight="medium" fontSize={"3em"}>
-              {IDRConvert.format(room.price_per_day) + "/hari"}
+              {IDRConvert.format(menu.price_per_pcs) + "/jumlah"}
             </Text>
-            <Text>{room.description}</Text>
+            <Text>{menu.description}</Text>
           </GridItem>
           <GridItem display="flex" justifyContent="end">
             <Link to={"/pesan/" + id}>
@@ -63,4 +62,4 @@ const RoomPage = () => {
   );
 };
 
-export default RoomPage;
+export default MenuPage;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/TheYard.png";
+import logo from "../../assets/TheYard.png";
 export default function Footer() {
   return (
     <div className="footer">

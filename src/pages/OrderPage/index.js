@@ -21,29 +21,29 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import RoomService from "../../services/room";
+import MenuService from "../../services/menu";
 import { PostTransaction } from "../../services/transaction";
 import { IDRConvert } from "../../utils/IDRConvert";
 
-export default function PesanPage() {
+export default function OrderPage() {
   const { id } = useParams();
   const toast = useToast();
-  const [room, setRoom] = useState({});
+  const [menu, setMenu] = useState({});
   const [inputData, setInputData] = useState({
     name: "",
-    days: 1,
+    pcs: 1,
     total: 0,
     payment: "",
   });
 
-  const findRooms = async (selectedId) => {
-    const roomResp = await RoomService.findRoomById(selectedId);
-    setRoom(roomResp.data.data);
+  const findMenu = async (selectedId) => {
+    const menuResp = await MenuService.findMenuById(selectedId);
+    setMenu(menuResp.data.data);
   };
 
   useEffect(() => {
     if (!id) return;
-    findRooms(id);
+    findMenu(id);
   }, [id]);
 
   const handleChangeData = (e) => {
@@ -57,17 +57,17 @@ export default function PesanPage() {
   const handleSubmitPesan = () => {
     PostTransaction({
       ...inputData,
-      room_id: id,
-      total: room.price_per_day * inputData.days,
+      menu_id: id,
+      total: menu.price_per_pcs * inputData.pcs,
     }).then(() => {
       toast({
         title: "Pemesanan Berhasil Ditambahkan",
         description:
-          "Terimakasih Sudah memesan di tempat kami :), Mohon tunggu sebentar untuk mengkonfirmasi lewat Whatsapp",
+          "Terimakasih sudah berkunjung ke tempat kami :), Mohon tunggu sebentar untuk mengkonfirmasi lewat Whatsapp",
       });
       if (inputData.payment === "Cash") {
         window.location.replace(
-          "https://api.whatsapp.com/send?phone=6282236354911&text=Halo%20Abhisrama%20Guest%20House%2C%20saya%20ingin%20melakukan%20konfirmasi%20pemesanan%20kamar%20atas%20nama%20" +
+          "https://api.whatsapp.com/send?phone=6282236354911&text=Halo%20The%20Yard%20Ubud%2C%20saya%20ingin%20melakukan%20konfirmasi%20pemesanan%20makanan%20atas%20nama%20" +
             inputData.name +
             "%20dengan%20pembayaran%20via%20cash."
         );
@@ -81,7 +81,7 @@ export default function PesanPage() {
 
   return (
     <Container maxW="container.md" py="8">
-      <Heading pb="9">Pemesanan : {room.name}</Heading>
+      <Heading pb="9">Pemesanan : {menu.name}</Heading>
       <Divider />
       <Stack spacing={6} py="5">
         <FormControl>
@@ -94,10 +94,10 @@ export default function PesanPage() {
           />
         </FormControl>
         <FormControl w="40">
-          <FormLabel>Jumlah Hari</FormLabel>
+          <FormLabel>Jumlah</FormLabel>
           <Input
-            name="days"
-            value={inputData.days}
+            name="pcs"
+            value={inputData.pcs}
             onChange={handleChangeData}
             type="number"
           ></Input>
@@ -118,10 +118,10 @@ export default function PesanPage() {
         <Divider />
 
         <Text fontSize="2em" fontWeight="bold">
-          Total : {IDRConvert.format(room.price_per_day * inputData.days)}
+          Total : {IDRConvert.format(menu.price_per_pcs * inputData.pcs)}
         </Text>
         <Button
-          disabled={!inputData.days || !inputData.name || !inputData.payment}
+          disabled={!inputData.pcs || !inputData.name || !inputData.payment}
           onClick={handleSubmitPesan}
         >
           Pesan

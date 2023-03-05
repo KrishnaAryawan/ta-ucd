@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import avatar1 from "../assets/avatar1.png";
+import avatar1 from "../../assets/avatar1.png";
 import { imageZoomEffect, TitleStyles } from "./ReusableStyles";
 export default function Testimonials() {
   return (

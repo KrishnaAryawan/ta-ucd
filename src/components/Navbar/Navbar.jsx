@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import theYard from "../assets/TheYard.png";
+import theYard from "../../assets/TheYard.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 export default function Navbar() {
@@ -27,18 +27,21 @@ export default function Navbar() {
         </div>
         <ul className="links">
           <li>
-            <a href="#home" className="active">
+            <a href="/#home" className="active">
               Home
             </a>
           </li>
           <li>
-            <a href="#services">Our Services</a>
+            <a href="/#services">Our Services</a>
           </li>
           <li>
-            <a href="#products">Products</a>
+            <a href="/#products">Products</a>
           </li>
           <li>
-            <a href="#testimonials">Testimonials</a>
+            <a href="/#testimonials">Testimonials</a>
+          </li>
+          <li>
+            <a href="/ordernow">ORDER NOW</a>
           </li>
         </ul>
       </Nav>
@@ -46,7 +49,7 @@ export default function Navbar() {
         <ul>
           <li>
             <a
-              href="#home"
+              href="/#home"
               className="active"
               onClick={() => setNavbarState(false)}
             >
@@ -54,18 +57,23 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#services" onClick={() => setNavbarState(false)}>
+            <a href="/#services" onClick={() => setNavbarState(false)}>
               Our Services
             </a>
           </li>
           <li>
-            <a href="#products" onClick={() => setNavbarState(false)}>
+            <a href="/#products" onClick={() => setNavbarState(false)}>
               Products
             </a>
           </li>
           <li>
-            <a href="#testimonials" onClick={() => setNavbarState(false)}>
+            <a href="/#testimonials" onClick={() => setNavbarState(false)}>
               Testimonials
+            </a>
+          </li>
+          <li>
+            <a href="/ordernow" onClick={() => setNavbarState(false)}>
+              ORDER NOW
             </a>
           </li>
         </ul>

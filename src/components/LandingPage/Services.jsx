@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import background from "../assets/ingredients.jpg";
-import Services1 from "../assets/Services1.svg";
-import Services2 from "../assets/Services2.svg";
-import Services3 from "../assets/Services3.svg";
+import background from "../../assets/ingredients.jpg";
+import Services1 from "../../assets/Services1.svg";
+import Services2 from "../../assets/Services2.svg";
+import Services3 from "../../assets/Services3.svg";
 import { TitleStyles } from "./ReusableStyles";
 export default function Services() {
   return (
