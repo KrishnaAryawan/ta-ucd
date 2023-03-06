@@ -3,7 +3,7 @@ import theyardAxios from "./_init";
 const MenuService = {
   async findAllMenu() {
     try {
-      return await theyardAxios.get("/menus");
+      return await theyardAxios.get("/ordernow");
     } catch (e) {
       console.error(e);
     }

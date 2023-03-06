@@ -5,7 +5,7 @@ import { IDRConvert } from "../../utils/IDRConvert";
 
 const MenuCard = ({ id, title, description, price, imageUrl }) => {
   return (
-    <Link to={"/room/" + id}>
+    <Link to={"/ordernow/" + id}>
       <Box
         w="80"
         h="md"
@@ -29,7 +29,7 @@ const MenuCard = ({ id, title, description, price, imageUrl }) => {
             </Text>
           </Box>
           <Text fontSize="lg" textColor="teal" fontWeight="semibold">
-            {IDRConvert.format(price) + "/hari"}
+            {IDRConvert.format(price) + "/jumlah"}
           </Text>
         </Box>
       </Box>
