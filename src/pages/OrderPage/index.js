@@ -111,7 +111,6 @@ export default function OrderPage() {
           >
             <HStack spacing="24px">
               <Radio value="Cash">Cash</Radio>
-              <Radio value="Transfer">Transfer</Radio>
             </HStack>
           </RadioGroup>
         </FormControl>

@@ -28,8 +28,8 @@ const MenuCard = ({ id, title, description, price, imageUrl }) => {
               {description}
             </Text>
           </Box>
-          <Text fontSize="lg" textColor="teal" fontWeight="semibold">
-            {IDRConvert.format(price) + "/jumlah"}
+          <Text fontSize="lg" textColor="#81b622" fontWeight="bold">
+            {IDRConvert.format(price) + "/pcs"}
           </Text>
         </Box>
       </Box>

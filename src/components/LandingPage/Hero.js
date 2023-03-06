@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import hero from "../../assets/hero.jpg";
-import heroDesign from "../../assets/HeroDesign.png";
 export default function Hero() {
   return (
     <Section id="home">
@@ -16,7 +15,7 @@ export default function Hero() {
             Look no further than our restaurant! For a limited time only, enjoy
             promo price at The Yard Ubud.
           </em>
-          <a href="/buynow">
+          <a href="/ordernow">
             <button>ORDER NOW</button>
           </a>
         </div>

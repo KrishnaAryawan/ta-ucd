@@ -7,7 +7,8 @@ import ScrollToTop from "../../components/LandingPage/ScrollToTop";
 import Services from "../../components/LandingPage/Services";
 import Testimonials from "../../components/LandingPage/Testimonials";
 import scrollreveal from "scrollreveal";
-export default function App() {
+
+export default function LandingPage() {
   useEffect(() => {
     const sr = scrollreveal({
       origin: "top",
@@ -30,6 +31,7 @@ export default function App() {
       }
     );
   }, []);
+
   return (
     <>
       <ScrollToTop />

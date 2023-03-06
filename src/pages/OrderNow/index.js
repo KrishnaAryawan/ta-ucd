@@ -41,7 +41,7 @@ const OrderNow = () => {
           </Box>
           <Box pt="4" display="flex" justifyContent="center">
             <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing="10">
-              {menu.map((val, key) => (
+              {menu?.map((val, key) => (
                 <MenuCard
                   key={key}
                   id={val.id}
