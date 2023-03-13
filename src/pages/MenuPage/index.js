@@ -32,8 +32,12 @@ const MenuPage = () => {
     <Container maxW="container.md">
       <Box pt="10">
         <Link to="/ordernow">
-          <Button variant="link" leftIcon={<AiOutlineArrowLeft />}>
-            Kembali
+          <Button
+            color="#81b622"
+            variant="link"
+            leftIcon={<AiOutlineArrowLeft />}
+          >
+            Back
           </Button>
         </Link>
         <Grid pt="2" templateColumns="repeat(1,1fr)">
@@ -43,16 +47,29 @@ const MenuPage = () => {
             </Box>
           </GridItem>
           <GridItem px="4">
-            <Heading size="lg">{menu.name}</Heading>
-            <Text color="teal" fontWeight="medium" fontSize={"24px"}>
-              {IDRConvert.format(menu.price_per_pcs) + "/jumlah"}
+            <Heading size="lg" mt="10px">
+              {menu.name}
+            </Heading>
+            <Text mt="10px">{menu.description}</Text>
+            <Text
+              mt="10px"
+              color="#81b622"
+              fontWeight="medium"
+              fontSize={"24px"}
+            >
+              {IDRConvert.format(menu.price_per_pcs) + "/pcs"}
             </Text>
-            <Text>{menu.description}</Text>
           </GridItem>
           <GridItem display="flex" justifyContent="end">
             <Link to={"/order/" + id}>
-              <Button colorScheme="green" display="flex" alignItems="center">
-                Pesan
+              <Button
+                mt="10px"
+                backgroundColor="#81b622"
+                textColor="white"
+                display="flex"
+                alignItems="center"
+              >
+                Order
               </Button>
             </Link>
           </GridItem>

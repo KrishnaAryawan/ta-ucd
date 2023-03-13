@@ -37,7 +37,7 @@ const OrderNow = () => {
           flexDirection="column"
         >
           <Box>
-            <Heading color="#3d550c">The Yard Ubud</Heading>
+            <Heading color="#81b622">The Yard Ubud</Heading>
           </Box>
           <Box pt="4" display="flex" justifyContent="center">
             <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing="10">
