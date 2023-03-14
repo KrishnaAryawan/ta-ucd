@@ -70,6 +70,18 @@ export default function OrderPage() {
       if (inputData.payment === "Cash") {
         window.location.replace(
           "https://api.whatsapp.com/send?phone=6281236827266&text=Hello%20The%20Yard%20Ubud%20I%20would%20like%20to%20order" +
+            " " +
+            menu.name +
+            " " +
+            inputData.pcs +
+            "pcs" +
+            " " +
+            "total" +
+            " " +
+            menu.price_per_pcs * inputData.pcs +
+            " " +
+            "The order from" +
+            " " +
             inputData.name +
             "%20with%20payment%20via%20cash."
         );
