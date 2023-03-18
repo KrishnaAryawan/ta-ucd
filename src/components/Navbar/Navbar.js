@@ -3,10 +3,12 @@ import styled from "styled-components";
 import theYard from "../../assets/TheYard.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
+
 export default function Navbar() {
   const [navbarState, setNavbarState] = useState(false);
   const html = document.querySelector("html");
   html.addEventListener("click", () => setNavbarState(false));
+
   return (
     <>
       <Nav>
@@ -42,6 +44,9 @@ export default function Navbar() {
           </li>
           <li>
             <a href="/ordernow">ORDER NOW</a>
+          </li>
+          <li>
+            <a href="/cart">CART</a>
           </li>
         </ul>
       </Nav>
