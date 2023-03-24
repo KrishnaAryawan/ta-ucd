@@ -5,6 +5,7 @@ import OrderNow from "./pages/OrderNow";
 import OrderPage from "./pages/OrderPage";
 import MenuPage from "./pages/MenuPage";
 import Cart from "./pages/CartPage";
+import OrderPageWithCart from "./pages/OrderPageWithCart";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/ordernow" element={<OrderNow />} />
             <Route path="/ordernow/:id" element={<MenuPage />} />
             <Route path="/order/:id" element={<OrderPage />} />
+            <Route path="/orderwithcart" element={<OrderPageWithCart />} />
           </Routes>
         </BrowserRouter>
       </ChakraProvider>

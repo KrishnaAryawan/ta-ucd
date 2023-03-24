@@ -1,5 +1,6 @@
-import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import CartCard from "../../components/CartCard";
 import Footer from "../../components/Footer/Footer";
 import MenuCard from "../../components/MenuCard";
@@ -62,9 +63,12 @@ export default function Cart() {
               ))}
             </SimpleGrid>
           </Box>
-          <Box>
+          <Box py="10">
             <Heading>Total : {total}</Heading>
           </Box>
+          <Link to="/orderwithcart" state={total}>
+            <Button w="full">Checkout</Button>
+          </Link>
         </Container>
       </div>
       <Footer mt="auto" />
