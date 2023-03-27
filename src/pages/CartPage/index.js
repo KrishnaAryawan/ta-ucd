@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import MenuCard from "../../components/MenuCard";
 import Navbar from "../../components/Navbar/Navbar";
 import MenuService from "../../services/menu";
+import { IDRConvert } from "../../utils/IDRConvert";
 
 export default function Cart() {
   const [cart, setCart] = useState([]);
@@ -50,24 +51,26 @@ export default function Cart() {
           <Box>
             <Heading color="#81b622">Cart</Heading>
           </Box>
-          <Box pt="4" display="flex" justifyContent="center">
+          <Box pt="4" display="flex">
             <SimpleGrid columns={[1]} spacing="10">
               {menu?.map((val, key) => (
                 <CartCard
                   key={key}
                   id={val.id}
                   name={val.name}
-                  price={val.price_per_pcs}
+                  price={IDRConvert.format(val.price_per_pcs)}
                   handleChangeCart={handleChangeCart}
                 />
               ))}
             </SimpleGrid>
           </Box>
           <Box py="10">
-            <Heading>Total : {total}</Heading>
+            <Heading>Total : {IDRConvert.format(total)} </Heading>
           </Box>
           <Link to="/orderwithcart" state={total}>
-            <Button w="full">Checkout</Button>
+            <Button w="full" backgroundColor="#81b622">
+              Checkout
+            </Button>
           </Link>
         </Container>
       </div>

@@ -61,7 +61,7 @@ const MenuPage = () => {
             </Text>
           </GridItem>
           <GridItem display="flex" justifyContent="end">
-            <Link to={"/order/" + id}>
+            <Link to={"/cart"}>
               <Button
                 mt="10px"
                 backgroundColor="#81b622"

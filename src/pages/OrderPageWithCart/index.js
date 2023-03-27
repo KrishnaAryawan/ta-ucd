@@ -27,7 +27,6 @@ import { IDRConvert } from "../../utils/IDRConvert";
 export default function OrderPageWithCart() {
   const toast = useToast();
   const location = useLocation();
-  const [menu, setMenu] = useState({});
   const [inputData, setInputData] = useState({
     name: "",
     payment: "",
@@ -74,7 +73,7 @@ export default function OrderPageWithCart() {
     <>
       <Navbar></Navbar>
       <Container maxW="container.md" py="8">
-        <Heading pb="9">Order : {menu.name}</Heading>
+        <Heading pb="9">Order :</Heading>
         <Divider />
         <Stack spacing={6} py="5">
           <FormControl>

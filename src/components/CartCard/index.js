@@ -11,10 +11,11 @@ export default function CartCard({ id, name, price, qty, handleChangeCart }) {
     >
       <Text fontWeight={700}>{name}</Text>
       <Text>{price}</Text>
-      <Box display="flex">
-        jumlah :
+      <Box display="flex" minWidth="80vw">
+        Pcs :
         <Input
           w="20"
+          marginLeft="10px"
           type="number"
           onChange={(e) => handleChangeCart(id, e.target.value)}
         ></Input>
