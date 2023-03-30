@@ -9,6 +9,7 @@ import {
   Input,
   Radio,
   RadioGroup,
+  SimpleGrid,
   Stack,
   Text,
   useToast,
@@ -27,10 +28,34 @@ import { IDRConvert } from "../../utils/IDRConvert";
 export default function OrderPageWithCart() {
   const toast = useToast();
   const location = useLocation();
+  console.log(location.state);
+  const [menu, setMenu] = useState([]);
+  const [cart, setCart] = useState([]);
   const [inputData, setInputData] = useState({
     name: "",
     payment: "",
   });
+
+  const fetchAllMenu = async () => {
+    const menuResp = await MenuService.findAllMenu();
+    setMenu(menuResp.data.data);
+  };
+
+  useEffect(() => {
+    fetchAllMenu();
+  }, []);
+
+  useEffect(() => {
+    if (!menu) return;
+    const arr2 = Object.keys(location.state?.cart).map((key) => Number(key));
+    const res = menu?.filter((item) => {
+      return arr2.includes(item.id);
+    });
+    setCart(res);
+    // console.log(menu);
+    console.log(res);
+    // console.log(arr2);
+  }, [menu]);
 
   const handleChangeData = (e) => {
     const { name, value } = e.target;
@@ -43,7 +68,7 @@ export default function OrderPageWithCart() {
   const handleSubmitPesan = () => {
     PostTransactionWithoutID({
       ...inputData,
-      total: location.state,
+      total: location.state?.total,
     }).then(() => {
       toast({
         title: "Pemesanan Berhasil Ditambahkan",
@@ -53,8 +78,14 @@ export default function OrderPageWithCart() {
       if (inputData.payment === "Cash") {
         window.location.replace(
           "https://api.whatsapp.com/send?phone=6281236827266&text=Hello%20The%20Yard%20Ubud%20I%20would%20like%20to%20order%20" +
+            cart?.map(
+              (item) =>
+                item.name + " " + location.state?.cart[item.id] + " pcs "
+            ) +
+            " " +
             "total" +
-            location.state +
+            " " +
+            IDRConvert.format(location.state?.total) +
             " " +
             "The order from" +
             " " +
@@ -99,8 +130,14 @@ export default function OrderPageWithCart() {
           </FormControl>
           <Divider />
 
+          {cart?.map((item) => (
+            <SimpleGrid columns={2}>
+              <Text>{item.name}</Text>
+              <Text>{location.state?.cart[item.id]}</Text>
+            </SimpleGrid>
+          ))}
           <Text mt="10px" fontSize="1.5em" fontWeight="bold" align="right">
-            Total : {IDRConvert.format(location.state)}
+            Total : {IDRConvert.format(location.state?.total)}
           </Text>
           <Button
             backgroundColor="#81b622"

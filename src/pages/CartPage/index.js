@@ -67,7 +67,7 @@ export default function Cart() {
           <Box py="10">
             <Heading>Total : {IDRConvert.format(total)} </Heading>
           </Box>
-          <Link to="/orderwithcart" state={total}>
+          <Link to="/orderwithcart" state={{ total, cart }}>
             <Button w="full" backgroundColor="#81b622">
               Checkout
             </Button>
